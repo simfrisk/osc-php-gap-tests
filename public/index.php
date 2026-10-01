@@ -1,3 +1,3 @@
 <?php
 header("Content-Type: text/plain");
-echo "version A\n";
+echo "version BROKEN-BUILD\n";
