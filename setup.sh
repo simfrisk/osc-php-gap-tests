@@ -3,7 +3,7 @@
 set -e
 BUILDLOG=/tmp/gap-ext-build.log
 : > "$BUILDLOG"
-trap 'echo "gap-test: FAILED, last build lines:"; tail -n 20 "$BUILDLOG" | cut -c1-200' ERR
+trap 'echo "gap-test: FAILED, last build lines:"; tail -n 20 "$BUILDLOG" | cut -c1-200; kill $HB 2>/dev/null' ERR
 # Heartbeat so the platform log shows progress even when the compile is silent or gets killed.
 ( while true; do sleep 15; echo "gap-test: heartbeat $(date -u +%H:%M:%S) last: $(tail -n 1 "$BUILDLOG" | cut -c1-160)"; done ) &
 HB=$!
