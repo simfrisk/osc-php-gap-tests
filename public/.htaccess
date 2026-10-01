@@ -1,2 +1,5 @@
 php_value upload_max_filesize 20M
 php_value post_max_size 25M
+php_flag display_errors off
+php_flag display_startup_errors off
+php_flag log_errors on
