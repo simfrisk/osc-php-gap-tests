@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installs gd, intl and zip. Timestamps every step so the build log shows where time goes.
 set -e
-JOBS="${GAP_JOBS:-$(nproc)}"
+JOBS=2
 T0=$(date +%s)
 echo "gap-test: start $(date -u +%H:%M:%S) nproc=$(nproc) jobs=$JOBS mem=$(awk '/MemTotal/{print $2" kB"}' /proc/meminfo)"
 if [ -r /sys/fs/cgroup/memory.max ]; then echo "gap-test: cgroup memory.max=$(cat /sys/fs/cgroup/memory.max)"; fi
